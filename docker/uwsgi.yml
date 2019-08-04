@@ -1,0 +1,13 @@
+uwsgi:
+  master: true
+  socket: :2021
+  harakiri: 3000
+  max-requests: 5000
+  processes: 10
+  threads: 4
+  env: DJANGO_SETTINGS_MODULE=config.settings
+  touch-reload: /tmp/reload
+  chdir: /container/faceswap/backend/
+  wsgi-file: ./config/wsgi.py
+  buffer-size: 65535
+  logformat: %(ltime) %(uri) %(method) -> %(status) %(msecs)ms

@@ -1,0 +1,31 @@
+version: '3.3'
+
+volumes:
+  redis-data:
+
+services:
+  nginx:
+    image: nginx:latest
+    restart: always
+    volumes:
+      - ../:/container/faceswap
+      - ./nginx:/etc/nginx/conf.d
+    ports:
+      - '80:80'
+    depends_on:
+      - django
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    container_name: container-nginx
+    
+  django:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    restart: always
+    working_dir: /container/faceswap
+    volumes:
+      - ../:/container/maxstock
+    expose:
+      - 2021
+    command: /bin/bash -c '/container/faceswap/docker/run_django.sh'
+    container_name: container-django

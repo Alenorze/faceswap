@@ -1,0 +1,20 @@
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<div class="container">
+ <div class="row justify-content-center">
+     <div class="col-8">
+        <form enctype="multipart/form-data" method="POST">{% csrf_token %}
+            <div class="form-group" style="margin-top: 100px;">
+                <label for="file_1">Choose image</label>
+                <input name="file_1" type="file" class="form-control-file" id="file_1">
+            </div>
+            <div class="form-group">
+                <label for="file_2">Choose second image</label>
+                <input name="file_2" type="file" class="form-control-file" id="file_2">
+            </div>
+            <button type="submit">Send</button>
+        </form>
+     </div>
+ </div>
+</div>
