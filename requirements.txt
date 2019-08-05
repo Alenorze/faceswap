@@ -13,3 +13,4 @@ scipy >= 0.18.0
 django==2.2.4
 
 opencv-python
+uwsgi

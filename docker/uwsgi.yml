@@ -5,7 +5,7 @@ uwsgi:
   max-requests: 5000
   processes: 10
   threads: 4
-  env: DJANGO_SETTINGS_MODULE=config.settings
+  env: DJANGO_SETTINGS_MODULE=config.settings.base
   touch-reload: /tmp/reload
   chdir: /container/faceswap/backend/
   wsgi-file: ./config/wsgi.py

@@ -1,7 +1,5 @@
-version: '3.3'
+version: '3.7'
 
-volumes:
-  redis-data:
 
 services:
   nginx:
@@ -24,7 +22,7 @@ services:
     restart: always
     working_dir: /container/faceswap
     volumes:
-      - ../:/container/maxstock
+      - ../:/container/faceswap
     expose:
       - 2021
     command: /bin/bash -c '/container/faceswap/docker/run_django.sh'
